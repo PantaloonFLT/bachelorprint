@@ -136,23 +136,22 @@ add_action( 'after_setup_theme', 'webseide_content_width', 0 );
 function webseide_widgets_init() {
 
     register_sidebar( array(
-		'name'          => 'Above WooCommerce',
-		'id'            => 'above_woocommerce',
-		'before_widget' => '<div class="woocommerce-widget">',
-		'after_widget'  => '</div>',
+		'name'          => 'Extra header',
+		'id'            => 'headstrip',
+		'before_widget' => '',
+		'after_widget'  => '',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Header right',
+		'id'            => 'header_right',
+		'before_widget' => '',
+		'after_widget'  => '',
 
 	) );
 
     register_sidebar( array(
-		'name'          => 'Below WooCommerce',
-		'id'            => 'below_woocommerce',
-		'before_widget' => '<div class="woocommerce-widget">',
-		'after_widget'  => '</div>',
-
-	) );
-
-    register_sidebar( array(
-		'name'          => 'Above Blog',
+		'name'          => 'Above blog',
 		'id'            => 'above_blog',
 		'before_widget' => '',
 		'after_widget'  => '',
@@ -161,7 +160,7 @@ function webseide_widgets_init() {
 	) );
 
     register_sidebar( array(
-		'name'          => 'Above Category',
+		'name'          => 'Above category',
 		'id'            => 'above_category',
 		'before_widget' => '',
 		'after_widget'  => '',
@@ -170,48 +169,53 @@ function webseide_widgets_init() {
 	) );
 
     register_sidebar( array(
-		'name'          => 'Above Blogpost Content',
+		'name'          => 'Above blog post',
 		'id'            => 'above_blogpost',
 		'before_widget' => '',
 		'after_widget'  => '',
 	) );
 
 	register_sidebar( array(
-		'name'          => 'Below Blogpost Content',
+		'name'          => 'Below blog post',
 		'id'            => 'below_blogpost',
 		'before_widget' => '<div id="below_blogpost" class="below_blogpost %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-
 	) );
 
     register_sidebar( array(
-		'name'          => 'Extra Header',
-		'id'            => 'headstrip',
-		'before_widget' => '',
-		'after_widget'  => '',
-	) );
-
-	register_sidebar( array(
-		'name'          => 'Header Right',
-		'id'            => 'header_right',
-		'before_widget' => '',
-		'after_widget'  => '',
-
+		'name'          => 'Above WooCommerce',
+		'id'            => 'above_woocommerce',
+		'before_widget' => '<div class="woocommerce-widget">',
+		'after_widget'  => '</div>',
 	) );
 
     register_sidebar( array(
-		'name'          => 'Bottom Right',
+		'name'          => 'Below WooCommerce',
+		'id'            => 'below_woocommerce',
+		'before_widget' => '<div class="woocommerce-widget">',
+		'after_widget'  => '</div>',
+	) );
+
+    register_sidebar( array(
+		'name'          => 'Bottom right (fixed)',
 		'id'            => 'bottom_right',
 		'before_widget' => '',
 		'after_widget'  => '',
 	) );
 
+    register_sidebar( array(
+		'name'          => 'Above footer',
+		'id'            => 'above_footer',
+		'before_widget' => '',
+		'after_widget'  => '',
+	) );
+
 	register_sidebar( array(
-		'name'          => 'Socket',
+		'name'          => 'Footer',
 		'id'            => 'primary',
-		'before_widget' => '<div class="socket-widget">',
+		'before_widget' => '<div class="footer-widget">',
 		'after_widget'  => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title'  => '</h3>',
@@ -220,7 +224,7 @@ function webseide_widgets_init() {
 
     add_filter('widget_title','remove_widget_title');
 	function remove_widget_title($title){
-		if (is_active_sidebar( 'header_left' ) || is_active_sidebar( 'headstrip' ) || is_active_sidebar( 'header_right' ) || is_active_sidebar( 'below_header' ) || is_active_sidebar( 'bottom_right' ) ||is_active_sidebar( 'above_woocommerce' )){
+		if (is_active_sidebar( 'header_left' ) || is_active_sidebar( 'headstrip' ) || is_active_sidebar( 'header_right' ) || is_active_sidebar( 'below_header' ) || is_active_sidebar( 'above_footer' ) ||is_active_sidebar( 'bottom_right' ) ||is_active_sidebar( 'above_woocommerce' )){
 			return null;
 		}
 		return $title;
@@ -274,15 +278,14 @@ function webseide_scripts() {
 add_action( 'wp_enqueue_scripts', 'webseide_scripts' );
 
 // Custom template tags for this theme
-require get_template_directory() . '/inc/template-tags.php';
+locate_template('/inc/template-tags.php', true, true);
 
 // Customizer additions
-require get_template_directory() . '/inc/customizer.php';
-
-require get_template_directory() . '/inc/customizer-css.php';
+locate_template('/inc/customizer.php', true, true);
+locate_template('/inc/customizer-css.php', true, true);
 
 // Jetpack compatibility file
-require get_template_directory() . '/inc/jetpack.php';
+locate_template('/inc/jetpack.php', true, true);
 
 // webseide Customizer
 add_filter( 'load_textdomain_mofile', 'load_custom_plugin_translation_file', 10, 2 );
@@ -818,14 +821,14 @@ add_action('wp_dashboard_setup', 'dl_add_dashboard_widget' );
 add_action('wp_network_dashboard_setup','dl_add_dashboard_widget' );
 
 /* Module Handling */
-require_once locate_template('/inc/modules.php');
+locate_template('/inc/modules.php', true, true);
 $modules = new modules();
 
 function webseideModules(){
     if(isset($GLOBALS['webseide_modules'])){
         return $GLOBALS['webseide_modules'];
     } else {
-        require_once locate_template('/inc/modules.php');
+        locate_template('/inc/modules.php', true, true);
         $webseide_modules = new modules;
         $GLOBALS['webseide_modules'] = $webseide_modules;
         return $webseide_modules;

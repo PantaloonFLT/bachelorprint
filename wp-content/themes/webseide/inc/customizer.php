@@ -98,7 +98,7 @@ function webseide_customize_register( $wp_customize ) {
 
     // Header section
  	$wp_customize->add_section( 'webseide_headersettings_section' , array(
-	    'title'       => __( 'Header (Menu &amp; Widgets)', 'webseide' ),
+	    'title'       => __( 'Header', 'webseide' ),
 	    'priority'    => 29,
 	));
 
@@ -342,7 +342,7 @@ function webseide_customize_register( $wp_customize ) {
 
 
  	$wp_customize->add_section( 'webseide_headstrip_section' , array(
-	    'title'       => __( 'Extra header (Widgets)', 'webseide' ),
+	    'title'       => __( 'Extra header (desktop only)', 'webseide' ),
 	    'priority'    => 30,
 	));
 
@@ -1146,7 +1146,7 @@ function webseide_customize_register( $wp_customize ) {
 
 	// Footer section
  	$wp_customize->add_section( 'webseide_footersettings_section' , array(
-	    'title'       => 'Footer (Menu &amp; Widgets)',
+	    'title'       => 'Footer',
 	    'priority'    => 33,
 	));
 

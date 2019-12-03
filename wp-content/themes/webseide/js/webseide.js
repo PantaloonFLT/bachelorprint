@@ -26,7 +26,6 @@ jQuery(document).ready(function($,wrapper) {
 		});
 	//}
 
-/*
     jQuery(window).scroll(function(){
         if(jQuery(window).scrollTop() > 30) {
         	jQuery('.site-header').addClass('dl-scrolling');
@@ -36,15 +35,18 @@ jQuery(document).ready(function($,wrapper) {
             jQuery('#headstrip').removeClass('dl-scrolling');
         }
 
-        if(jQuery(window).scrollTop() > 30) {
-        	jQuery('.site-header').addClass('dl-scrolling');
-            jQuery('#headstrip').addClass('dl-scrolling');
+        if(jQuery(window).scrollTop() != 0 && jQuery('#headstrip').css('position') == 'fixed'){
+        	jQuery('#headstrip').addClass('headstrip-fixed');
         } else {
-        	jQuery('.site-header').removeClass('dl-scrolling');
-            jQuery('#headstrip').removeClass('dl-scrolling');
+        	jQuery('#headstrip').removeClass('headstrip-fixed');
+        }
+
+        if(jQuery(window).scrollTop() != 0 && jQuery('.site-header').css('position') == 'fixed'){
+        	jQuery('.site-header').addClass('site-header-fixed');
+        } else {
+        	jQuery('.site-header').removeClass('site-header-fixed');
         }
     });
-    */
 
 	if(typeof(webseide_header) == 'object'){
 		header 				= jQuery('.site-header');
@@ -132,6 +134,11 @@ jQuery(document).ready(function($,wrapper) {
 						offsetToClip 			= 0;
 						newOffsetHeaderstrip	= offsetHeaderstrip;
 					}
+
+
+					console.log(offsetToClip);
+
+
 
 					if(scrollTop > offsetToClip){
 						headerstrip.css({ 'height': webseide_header.headstrip_height + 'px', 'position': 'fixed', 'top': newOffsetHeaderstrip + 'px'});
@@ -291,7 +298,7 @@ jQuery(document).ready(function($,wrapper) {
 /* Light YouTube Embeds by @labnol */
 /* Web: http://labnol.org/?p=27941 */
 
-document.addEventListener("DOMContentLoaded",
+/*document.addEventListener("DOMContentLoaded",
     function() {
         var div, n, url, id, video,
             v = jQuery(".wp-block-embed-youtube");
@@ -326,4 +333,4 @@ function labnolIframe() {
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("allowfullscreen", "1");
     this.parentNode.replaceChild(iframe, this);
-}
+}*/

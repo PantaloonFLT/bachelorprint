@@ -59,6 +59,7 @@ function webseide_css() {
                 
         .menus,
         .headstrip-inner,
+        .above-footer,
 		.site-footer {
             width: 100%;
 			max-width: <?php echo ('' != get_theme_mod( 'webseide_frame_width' ) ? get_theme_mod( 'webseide_frame_width' ).'px' : '1200px'); ?>;
@@ -71,6 +72,10 @@ function webseide_css() {
             background-color: <?php echo ( '' != get_theme_mod( 'webseide_color_extra_header_background' ) ? get_theme_mod( 'webseide_color_extra_header_background') : '#cacaca'); ?>;
             color: <?php echo ( '' != get_theme_mod( 'webseide_color_extra_header_font' ) ? get_theme_mod( 'webseide_color_extra_header_font') : '#000000'); ?>;
             font-size: <?php echo ( '' != get_theme_mod( 'webseide_headstrip_font' ) ? get_theme_mod( 'webseide_headstrip_font').'px' : '14px'); ?>;
+        }
+        
+        #headstrip .sub-menu {
+            background-color: <?php echo ( '' != get_theme_mod( 'webseide_color_extra_header_background' ) ? get_theme_mod( 'webseide_color_extra_header_background') : '#cacaca'); ?>;
         }
 
         .headstrip-inner {
@@ -116,23 +121,23 @@ function webseide_css() {
             }
 
             #header-image, #site-navigation, #header_right {
-                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? ''.get_theme_mod( 'webseide_header_height') * .9.'px' : '72px'); ?>;
+                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? get_theme_mod( 'webseide_header_height') .'px' : '80px'); ?>;
             }
 
             span#page-name {
-                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? ''.get_theme_mod( 'webseide_header_height') * .9.'px' : '72px'); ?>;
+                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? get_theme_mod( 'webseide_header_height') .'px' : '80px'); ?>;
             }
 
             #header_right .dashicons,
             #header_right a.wpml-ls-link {
-                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? ''.get_theme_mod( 'webseide_header_height') * .9.'px' : '72px'); ?> !important;
+                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? get_theme_mod( 'webseide_header_height') .'px' : '80px'); ?> !important;
             }
 
         }
 
         @media (max-width:37.49em){
             #header_right {
-                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? ''.get_theme_mod( 'webseide_header_height') * .9.'px' : '72px'); ?>;
+                line-height: <?php echo ( '' != get_theme_mod( 'webseide_header_height' ) ? get_theme_mod( 'webseide_header_height') .'px' : '80px'); ?>;
             }
         }
 
@@ -216,9 +221,9 @@ function webseide_css() {
 			background-color: <?php echo ( '' != get_theme_mod( 'webseide_color_mobile_menu_background' ) ? get_theme_mod( 'webseide_color_mobile_menu_background') : '#313131'); ?>;
 		}
 
-		.main-navigation ul ul {
+		/*.main-navigation ul ul {
 			margin-top: -<?php echo ( '' != get_theme_mod( 'webseide_headerfont_desktop' ) ? get_theme_mod( 'webseide_headerfont_desktop').'px' : '18px'); ?>;
-		}
+		}*/
 
 		.menu-toggle span, .menu-toggle span:before, .menu-toggle span:after {
 			background-color: <?php echo ( '' != get_theme_mod( 'webseide_color_header_font' ) ? get_theme_mod( 'webseide_color_header_font') : '#000000'); ?>;
@@ -429,9 +434,9 @@ function webseide_css() {
             font-family: <?php if(get_theme_mod('webseide_h3fontstyle')=='serif') {echo 'Georgia, "Times New Roman", Times, serif';} else { echo('Helvetica, Arial, sans-serif');}?>;
         }
 
-		.site-content .content-area,
-		.site-content .content-area input,
-		.site-content .content-area textarea,
+		.site-content,
+		.site-content input,
+		.site-content textarea,
         .gfield_select,
         .woocommerce ul.products li.product .price,
         .woocommerce div.product p.price,
@@ -441,11 +446,11 @@ function webseide_css() {
     		color: <?php echo ( '' != get_theme_mod( 'webseide_color_content_text' ) ? get_theme_mod( 'webseide_color_content_text') : '#3a3a3a'); ?>;
     	}
 
-        .site-content .content-area a:hover {
+        .site-content a:hover {
             color: <?php echo ( '' != get_theme_mod( 'webseide_color_content_links_hover' ) ? get_theme_mod( 'webseide_color_content_links_hover') : '#e72655'); ?>;
         }
 
-        .site-content .content-area input[type="submit"]:hover,
+        .site-content input[type="submit"]:hover,
         .wp-block-button a.wp-block-button__link:hover,
         .dl-pricechart tr:last-of-type a:hover,
    		.site-content  button .wp-block-button__link:hover {
@@ -453,18 +458,19 @@ function webseide_css() {
             background-color: <?php echo ( '' != get_theme_mod( 'webseide_color_content_links_hover' ) ? get_theme_mod( 'webseide_color_content_links_hover') : '#e72655'); ?>;
         }
 
-        .site-content .content-area .wp-block-button.is-style-outline a.wp-block-button__link:hover {
+        .site-content .wp-block-button.is-style-outline a.wp-block-button__link:hover {
             color: <?php echo ( '' != get_theme_mod( 'webseide_color_content_links_hover' ) ? get_theme_mod( 'webseide_color_content_links_hover') : '#e72655'); ?>;
             border-color: <?php echo ( '' != get_theme_mod( 'webseide_color_content_links_hover' ) ? get_theme_mod( 'webseide_color_content_links_hover') : '#e72655'); ?>;
         }
 
-    	.site-content .content-area a,
+    	.content-area a,
 		.site-content .comments-area a,
         .site-content .comment-respond a,
         .gfield_required,
         span.op-open,
         .op-table tr.op-row.highlighted th,
-        .op-table tr.op-row.highlighted td {
+        .op-table tr.op-row.highlighted td,
+        .above-footer a {
     		color: <?php echo ( '' != get_theme_mod( 'webseide_color_content_links' ) ? get_theme_mod( 'webseide_color_content_links') : '#ff6d63'); ?>;
     	}
 
@@ -741,11 +747,11 @@ function webseide_css() {
             <?php endif; ?>
 
 
-            .socket {
+            .footer-widgets {
 				display: grid;
 				grid-template-columns: repeat(<?php echo ('' != get_theme_mod( 'webseide_footer_columns' ) ? get_theme_mod( 'webseide_footer_columns' ) : 2); ?>, 1fr);
                 column-gap: 30px;
-                padding: 1vh 0;
+                /*padding: 1vh 0;*/
 			}
 
             .page .commentlist {
@@ -794,7 +800,6 @@ function webseide_css() {
 
 
 		/* --- Footer --- */
-
     	#overallfooter {
 			/*top: <?php echo $siteContentHeight; ?>px;*/
             color: <?php echo ( '' != get_theme_mod( 'webseide_color_footer_font' ) ? get_theme_mod( 'webseide_color_footer_font') : '#f4f3f2'); ?>;

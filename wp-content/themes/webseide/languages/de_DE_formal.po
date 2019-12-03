@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: webseide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-13 16:14+0100\n"
-"PO-Revision-Date: 2019-11-13 16:28+0100\n"
+"POT-Creation-Date: 2019-11-26 16:13+0100\n"
+"PO-Revision-Date: 2019-11-26 16:13+0100\n"
 "Last-Translator: Severin Lucks <sl@delucks.com>\n"
 "Language-Team: Deutsch (Sie)\n"
 "Language: de\n"
@@ -46,21 +46,21 @@ msgstr "Hauptmenü"
 msgid "Footer Menu"
 msgstr "Footer Menü"
 
-#: functions.php:742
+#: functions.php:751
 msgid "Your comment is awaiting moderation."
 msgstr "Ihr Kommentar wartet auf Moderation."
 
-#: functions.php:751
+#: functions.php:760
 #, php-format
 msgid "%s"
 msgstr "%s"
 
-#: functions.php:756
+#: functions.php:765
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s bei %2$s"
 
-#: functions.php:758
+#: functions.php:767
 msgid "(Edit)"
 msgstr "(Bearbeiten)"
 
@@ -89,8 +89,8 @@ msgid "Border radius for input fields"
 msgstr "Rahmenradius für Eingabefelder"
 
 #: inc/customizer.php:101
-msgid "Header (Menu &amp; Widgets)"
-msgstr "Header (Menü &amp; Widgets)"
+msgid "Header"
+msgstr "Header"
 
 #: inc/customizer.php:113
 msgid "Background"
@@ -183,8 +183,8 @@ msgid "Mobile menu font"
 msgstr "Schriftfarbe des mobilen Menüs"
 
 #: inc/customizer.php:345
-msgid "Extra header (Widgets)"
-msgstr "Extra Header (Widgets)"
+msgid "Extra header (desktop only)"
+msgstr "Extra Header (nur Desktop)"
 
 #: inc/customizer.php:370
 msgid "Fixed extra header"
@@ -1142,8 +1142,8 @@ msgstr "Beschreibung"
 msgid "You may also like&hellip;"
 msgstr "Ihnen könnte außerdem gefallen&hellip;"
 
-#~ msgid "Header"
-#~ msgstr "Header"
+#~ msgid "Header (Menu &amp; Widgets)"
+#~ msgstr "Header (Menü &amp; Widgets)"
 
 #~ msgid "Logo height in relation to header height"
 #~ msgstr "Logohöhe im Verhältnis zur Header-Höhe"

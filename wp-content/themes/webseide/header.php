@@ -23,15 +23,12 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site <?php echo (get_theme_mod( 'webseide_hamburger_desktop' ) == '1' ? 'show-hamburger-desktop' : ''); ?> <?php echo get_post_type(); ?>">
-
-    <?php if ( is_active_sidebar( 'headstrip' ) ) : ?>
+    <?php if ( is_active_sidebar( 'headstrip' ) && (('' != get_theme_mod( 'webseide_headstrip_position' ) ? get_theme_mod( 'webseide_headstrip_position' ) : 'aboveheader')) == 'aboveheader'  ) : ?>
         <div id="headstrip" class="<?php echo ( '' != get_theme_mod( 'webseide_headstrip_alignment' ) ? get_theme_mod( 'webseide_headstrip_alignment') : 'alignright'); ?> <?php echo ( '' != get_theme_mod( 'webseide_headstrip_position' ) ? get_theme_mod( 'webseide_headstrip_position') : 'aboveheader'); ?>" role="complementary">
             <div class="headstrip-inner"><?php dynamic_sidebar( 'headstrip' ); ?></div>
         </div>
     <?php endif; ?>
-
 	<header id="masthead" class="site-header <?php echo get_theme_mod( 'webseide_headerfontstyle' ); ?> <?php echo get_theme_mod( 'webseide_headerfontweight' ); ?> <?php if ( is_active_sidebar( 'headstrip' ) ) { echo 'headstrip'; } ?> <?php echo ( '' != get_theme_mod( 'webseide_headstrip_position' ) ? get_theme_mod( 'webseide_headstrip_position') : 'aboveheader'); ?>" role="banner">
-
     	<div class="menus">
         	<div id="header-image">
               	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -43,19 +40,14 @@
               	</a>
         	</div>
 
-
 			<nav id="site-navigation-mobile" class="main-navigation" role="navigation">
 				<div id="mobileMenuToggle">
-
 			    	<input type="checkbox" />
-
 			    	<span></span>
 			    	<span></span>
-
 			    	<div class="menu-wrapper">
 			    		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary_menu' ) ); ?>
 			    	</div>
-
 				</div>
 			</nav>
 
@@ -68,11 +60,11 @@
 			<nav id="site-navigation" class="main-navigation <?php echo ( '' != get_theme_mod( 'webseide_mainmenu_alignment' ) ? get_theme_mod( 'webseide_mainmenu_alignment') : 'menualignright'); ?>" role="navigation">
 				  <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav>
-
-
-
         </div><!-- .menus -->
-
 	</header><!-- #masthead -->
-
+	<?php if ( is_active_sidebar( 'headstrip' ) && (('' != get_theme_mod( 'webseide_headstrip_position' ) ? get_theme_mod( 'webseide_headstrip_position' ) : 'aboveheader')) == 'belowheader'  ) : ?>
+        <div id="headstrip" class="<?php echo ( '' != get_theme_mod( 'webseide_headstrip_alignment' ) ? get_theme_mod( 'webseide_headstrip_alignment') : 'alignright'); ?> <?php echo ( '' != get_theme_mod( 'webseide_headstrip_position' ) ? get_theme_mod( 'webseide_headstrip_position') : 'aboveheader'); ?>" role="complementary">
+            <div class="headstrip-inner"><?php dynamic_sidebar( 'headstrip' ); ?></div>
+        </div>
+    <?php endif; ?>
 	<div id="content" class="site-content">
