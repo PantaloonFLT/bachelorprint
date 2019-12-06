@@ -200,16 +200,16 @@
 								if ( has_nav_menu('primary') ) {
 									$menu_thumbnail = carbon_get_theme_option( 'crb_menu_thumbnail' );
 									$bp_mega_menu = wp_nav_menu( $primarymenu );
-									#echo $bp_mega_menu;
-									$obj_mega_menu = phpQuery::newDocument( $bp_mega_menu );
-									$li_elements = $obj_mega_menu->find( ".bp-primary-nav > li.menu-item-has-children" );
-									$count_li = count( $li_elements );
-									for( $i = 0; $i < $count_li; $i++ ) {
-										$li_dropdown_elements = $obj_mega_menu->find( ".bp-primary-nav > li.menu-item-has-children:eq(".$i.") > ul > li" );
-										$count_dropdown_li = count( $li_dropdown_elements );
-										$obj_mega_menu->find( ".bp-primary-nav > li.menu-item-has-children:eq(".$i.") > ul > li" )->wrapAll( "<div class='container'>" );
-									}
-									print $obj_mega_menu;
+									echo $bp_mega_menu;
+									#$obj_mega_menu = phpQuery::newDocument( $bp_mega_menu );
+									#$li_elements = $obj_mega_menu->find( ".bp-primary-nav > li.menu-item-has-children" );
+									#$count_li = count( $li_elements );
+									#for( $i = 0; $i < $count_li; $i++ ) {
+										#$li_dropdown_elements = $obj_mega_menu->find( ".bp-primary-nav > li.menu-item-has-children:eq(".$i.") > ul > li" );
+										#$count_dropdown_li = count( $li_dropdown_elements );
+										#$obj_mega_menu->find( ".bp-primary-nav > li.menu-item-has-children:eq(".$i.") > ul > li" )->wrapAll( "<div class='container'>" );
+									#}
+									#print $obj_mega_menu;
 								}
 
 								?>

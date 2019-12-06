@@ -165,10 +165,12 @@
         window.tlsConfiguratorUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsConfiguratorUrl;
       }
 
+
       window.tlsHeaderElSelector = '#shop-time-elem';
 			window.tlsMenuElSelector = '#shop-main-panel';
 			window.tlsHeaderWidgetUrl = '/custom/plugins/ZinitBachelorprint/Resources/views/frontend/_public/src/js/header_inject.js?v=1.0.11';
 			$.getScript(tlsShopUrl + tlsHeaderWidgetUrl, function() {
+			//$.getScript(bpLocalize.configurator['config_' + bpLocalize.langCode].headerInjectJS, function() {
 				if (window.tlsHeaderApp) {
 					var iframe = document.createElement('iframe');
 					iframe.id = 'tlsServiceFrame';
@@ -180,9 +182,10 @@
 					};
 					iframe.src = tlsShopUrl + '/custom/plugins/ZinitBachelorprint/Resources/views/frontend/_public/src/header_service.html';
 					document.getElementsByTagName('body')[0].appendChild(iframe);
-					addLogo();
+					//addLogo();
 				}
 			});
+
 		});
 
 		//window resize
@@ -244,7 +247,7 @@
 		});
 
 		//activate & deactivate mega menu
-		/*
+
 		jQuery(".bp-main-nav .bp-primary-nav > li.menu-item-has-children").hover(function(){
 			var eElem = jQuery(this);
 			box.timeoutId = setTimeout(function(){
@@ -256,7 +259,7 @@
 			jQuery(".bp-thumbnail").attr("src", "");
 			jQuery(".bp-thumbnail-link").attr("href", "");
 		});
-*/
+
 		//activate & deactivate submenu
 		jQuery(".bp-button-chevron").click(function(){
 			var button = jQuery(this);

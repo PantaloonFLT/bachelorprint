@@ -1,18 +1,49 @@
 <?php
 
-function gtec_widgets_init(){
+/**
+ * Widgets */
+include 'widgets/delucks_languages.php';
+include 'widgets/delucks_hotline.php';
+
+
+/**
+ * Sidebars */
+
+/* footnotes */
+/*
+function footnotes_init(){
     register_sidebar(array(
         'name'          => __( 'Fußzeile Weitere Hinweise', 'envor' ),
         'id'            => 'footer-before-bottom',
         'description'   => __( 'Footer Widget before Footer Content', 'envor' ),
         'before_widget' => '<div class="%1$s gtec-accordion"><div class="container">',
         'after_widget'  => '</div></div></div>',
-        'before_title'  => '<p class="bold collapsed" data-toggle="collapse" data-target="#gtec-accordion-content">',
-        'after_title'   => ' <i class="fa fa-angle-down" aria-hidden="true"></i></p><div class="clear"></div><div id="gtec-accordion-content" class="col-md-6 collapse">',
+        'before_title'  => '<p class="footnotes">',
+        'after_title'   => ' <span class="lnr lnr-chevron-down"></span></p><div id="footnotes-content">',
     ));
 }
+add_action('widgets_init', 'footnotes_init');
+*/
 
-add_action('widgets_init', 'gtec_widgets_init');
+/* sticky main navigation image */
+function blog_sticky_nav_image_init(){
+    register_sidebar(array(
+        'name'          => 'Blog Sticky Nav Image',
+        'id'            => 'blog_sticky_nav_image',
+        'before_widget' => '',
+        'after_widget'  => '',
+    ));
+}
+add_action( 'widgets_init', 'blog_sticky_nav_image_init' );
 
-include 'widgets/delucks_languages.php';
-include 'widgets/delucks_hotline.php';
+/* sticky main navigation content */
+function blog_sticky_nav_content_init(){
+    register_sidebar(array(
+        'name'          => 'Blog Sticky Nav Content',
+        'id'            => 'blog_sticky_nav_content',
+        'before_widget' => '',
+        'after_widget'  => '',
+    ));
+}
+add_action( 'widgets_init', 'blog_sticky_nav_content_init' );
+

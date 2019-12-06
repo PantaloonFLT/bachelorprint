@@ -1,10 +1,138 @@
 @charset "UTF-8";
+/* --- Fonts --- */
+
+/* Icons*/
+@import url(../fonts/icon-font.min.css);
+
+.wpml-ls-item a::before {
+    content: '';
+    width: 18px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.icl-de a::before,
+a.js-wpml-ls-item-toggle.icl-de::before {
+    background: url('../images/main-sprite.png') -10px -109px;
+}
+
+.icl-at a::before,
+a.js-wpml-ls-item-toggle.icl-at::before {
+    background: url('../images/main-sprite.png') -48px -109px;
+}
+
+.icl-pl a::before,
+a.js-wpml-ls-item-toggle.icl-pl::before {
+    background: url('../images/main-sprite.png') -86px -109px;
+}
+
+.icl-en_GB a::before,
+a.js-wpml-ls-item-toggle.icl-en_GB::before {
+    background: url('../images/main-sprite.png') -153px -10px;
+}
+
+.icl-tr a::before,
+a.js-wpml-ls-item-toggle.icl-tr::before {
+    background: url('../images/main-sprite.png') -153px -42px;
+}
+
+.icl-es a::before,
+a.js-wpml-ls-item-toggle.icl-es::before {
+    background: url('../images/main-sprite.png') -153px -74px;
+}
+
+.icl-it a::before,
+a.js-wpml-ls-item-toggle.icl-it::before {
+    background: url('../images/main-sprite.png') -153px -106px;
+}
+
+.icl-fr a::before,
+a.js-wpml-ls-item-toggle.icl-fr::before {
+    background: url('../images/main-sprite.png') -10px -141px;
+}
+
+.icl-en_EU a::before,
+a.js-wpml-ls-item-toggle.icl-en_EU::before {
+    background: url('../images/main-sprite.png') -48px -141px;
+}
+
+.bg-lieferung {
+    width: 123px; height: 79px;
+    background: url('../images/main-sprite.png') -10px -10px;
+}
+
+.icl-nl a::before,
+a.js-wpml-ls-item-toggle.icl-nl::before {
+    background: url('../images/main-sprite.png') -86px -141px;
+}
+
+.bg-usa a::before,
+a.js-wpml-ls-item-toggle.bg-usa::before {
+    background: url('../images/main-sprite.png') -124px -141px;
+}
+
+.icl-ch a::before,
+a.js-wpml-ls-item-toggle.icl-ch::before {
+    background: url('../images/main-sprite.png') -191px -10px;
+}
+
+.icl-en a::before,
+a.js-wpml-ls-item-toggle.icl-en::before {
+    width: 18px; height: 12px;
+    background: url('../images/main-sprite.png') -191px -42px;
+}
+
+
+/* --- Header WPML --- */
+.aboveheader li.wpml-ls-item {
+    display: none;
+}
+
+.aboveheader li.wpml-ls-item.icl-en_EU {
+    display: block;
+}
+
+.aboveheader li.wpml-ls-current-language {
+    background-color: #f9f9f9;
+    display: block;
+}
+
+.aboveheader a.wpml-ls-link {
+    margin: 5px;
+}
+
+/* --- Header Widgets ---*/
+a.btn-sm.green.gtec-btn-header {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    background: #1d4595;
+    color: #fff;
+    border-radius: 3px;
+    width: 150px;
+    display: block;
+    text-align: center;
+    line-height: 1;
+}
+
+/* --- Header Menu --- */
+body #masthead.site-header a,
+body #masthead.site-header .dropdown-menu .menu-item-has-children a {
+    font-weight: 600;
+}
+
+body #masthead.site-header .bp-main-nav > .bp-primary-nav > li > ul > .container > li > ul > li > ul > li > a {
+    font-weight: normal;
+}
+
+
 /* --- Start Table of Contents --- */
-/*div#toc_container {
+div#toc_container {
     border: 0 !important;
 }
-*/
-
 
 #toc_container p.toc_title {
     text-align: left;
@@ -14,7 +142,7 @@
     padding-left: 0;
 }
 
-@media (min-width: 800px){
+@media (min-width: 768px){
     ul.toc_list {
         display: block !important;
     }
@@ -33,7 +161,7 @@
 
 h1, h2, h3, h4, h5 {
     line-height: 1.4;
-    font-family: Lato,Helvetica,Arial,sans-serif;
+    font-family: 'Lato',Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
 
@@ -51,18 +179,32 @@ h1, h2, h3, h4, h5 {
     color: #333;
 }
 
+.site-content h5 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
 
 
 /* --- End Typgraphy --- */
 
 /* --- Start Content --- */
 
-
-/*.vc_row-fluid {
+/*.vc_row {
   width: 100vw;
   max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+
+.site-content .vc_column_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vc_column_container>.vc_column-inner {
+    max-width: 1200px;
+    margin: 0 auto;
 }*/
 
 
@@ -70,36 +212,172 @@ h1, h2, h3, h4, h5 {
 /* --- End Content --- */
 
 /* --- Start Above Footer --- */
-.above-footer {
-    padding-top: 20px;
+.site-content .above-footer {
+/*    padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #d7d7d7;
+    background-color: #d7d7d7;*/
     height: auto;
     font-size: 10px;
     color: #414141;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 0;
 }
 
+.site-content .above-footer .textwidget {
+    position: relative;
+    width: 100%;
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
 
-@media (min-width: 992px){
-    .col-md-3 {
-        width: 25%;
-    }
-    .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
-        float: left;
-    }
+.site-content .above-footer .textwidget.custom-html-widget:last-of-type {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #d7d7d7;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+.site-content .above-footer .textwidget.custom-html-widget .frame {
+    width: 100%;
+    max-width: 1230px;
+    margin: 0 auto;    
 }
 
 @media (min-width: 768px){
-    .col-md-3 {
+    .site-content .above-footer .textwidget {
+        display: flex;
+        text-align: left;
+    }
+    
+    .col-md-3,
+    .lnr {
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
         max-width: 25%;
         float: left;
+        display: flex;
+        padding-left: 0;
     }
+    
+    .above-footer .col-md-3 {
+        padding-left: 0;
+    }
+}
+
+.feature-description h5 {
+    font-size: 11px;
+    color: #414141;
+    letter-spacing: 2px;
+}
+
+.feature-description p {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.above-footer .lnr {
+    color: #114596;
+    font-size: 50px;
+}
+
+.ausgezeichnet {
+    display: block;
+    background-image: url(https://siegel.ausgezeichnet.org/asset/images/widgets/bg-borderrlng-m.png);
+    background-repeat: no-repeat;
+    background-size: 180px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+}
+
+.above-footer .col-md-3:last-of-type:after {
+    content: '';
+    float: none;
+    clear: both;
 }
 
 /* --- End Above Footer --- */
 
 /* --- Start Footer --- */
+.footermenu {
+    display: table;
+    margin: 0 auto;
+}
+
+.footer-widgets ul li {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.footer-widgets .menu li:nth-child(1) a {
+    font-size: 16px;
+    font-weight: bolder;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 5px;
+}
+
+@media (min-width: 768px){
+    .footer-widgets ul li {
+        text-align: left;
+    }
+}
+
+/* Footer WPML */
+@media (min-width: 768px){
+    .footer-widget .wpml-ls-sidebars-primary {
+        position: absolute;
+        left: 50%;
+        width: 110px;
+        margin-left: -55px;
+        margin-top: -30px;
+    }
+    
+    .footer-widget ul.js-wpml-ls-sub-menu.wpml-ls-sub-menu {
+        display: none;
+    }
+
+    .footer-widget .wpml-ls-current-language:hover > ul.js-wpml-ls-sub-menu.wpml-ls-sub-menu {
+        display: block;
+        position: absolute;
+        top: -305px;
+        left: -5px;
+        width: 110px;
+        background: #fff;
+        padding-left: 10px !important;
+        border: 1px solid grey;
+    }
+    
+    .footer-widget .wpml-ls-current-language a.js-wpml-ls-item-toggle {
+        font-weight: bolder;
+        border: 1px solid #f2f2f2;
+        padding: 5px 15px;
+    }
+}
+
+@media (max-width: 767px){
+    .footer-widget .wpml-ls-sub-menu li {
+        float: left;
+    }
+    
+    .footer-widget a.lang_sel_sel,
+    .footer-widget .wpml-ls-sub-menu a.wpml-ls-link span {
+        display: none;
+    }
+    
+    .footer-widget .wpml-ls-sub-menu a.wpml-ls-link {
+        margin: 5px 10px;
+    }
+}
+
+
 
 /* --- End Footer --- */

@@ -24,13 +24,13 @@ function child_theme_scripts() {
                 'tlsConfiguratorUrl' => constant('BP_CODE_' . mb_strtoupper(ICL_LANGUAGE_CODE))
                 ? constant('BP_CODE_' . mb_strtoupper(ICL_LANGUAGE_CODE))['tlsConfiguratorUrl']
                 : '',
+                'headerInjectJS' => '/wp-content/themes/webseide-desktop/js/header_inject.js',
+                'flipclockJS' => '/wp-content/themes/webseide-desktop/js/flipclock.min.js',
             ),
         )
     ));
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_scripts' );
-
-
 
 
 /**
@@ -172,5 +172,59 @@ function crb_attach_theme_options() {
     require get_stylesheet_directory().'/inc/custom-fields/custom-fields.php';
 }
 
+
+/**
+ * Extend dynamic_sidebar function.
+ *
+ * @param $index
+ */
+function gtec_dynamic_sidebar($index) {
+    if (ICL_LANGUAGE_CODE != 'de') {
+        $index .= '_' . ICL_LANGUAGE_CODE;
+    }
+    dynamic_sidebar($index);
+}
+
+/**
+ * Get translatable author meta.
+ * @param $field
+ */
+function gtec_get_the_author_meta($field) {
+    $content = get_the_author_meta($field);
+    return gtec_explode_language_content($content);
+}
+
+function gtec_explode_language_content($content) {
+    $contentMap = array();
+    $count = 0;
+    $key = null;
+    foreach (explode('###', $content) as $contentSegment) {
+        if ($count == 0) {
+            $content = $contentSegment;
+        } else if ($count % 2 == 1) {
+            $key = strtolower($contentSegment);
+        } else {
+            $contentMap[$key] = $contentSegment;
+        }
+        $count++;
+    }
+    if (ICL_LANGUAGE_CODE != 'de' && array_key_exists(ICL_LANGUAGE_CODE, $contentMap)) {
+        $content = $contentMap[ICL_LANGUAGE_CODE];
+    }
+    return $content;
+}
+
+
+/** Remove Google Fonts */
+add_action( 'wp_enqueue_scripts', 'plugin_setup_styles' );
+
+function plugin_setup_styles() {
+  // it may not be quite this simple, depending on what the plugin is doing
+  wp_register_style( 'plugin-google-font-lato', 'http://fonts.googleapis.com/css?family=Lato:300,400,700' );
+  wp_enqueue_style( 'plugin-google-font-lato' );
+  add_action( 'wp_enqueue_scripts', function() {
+  wp_dequeue_style( 'plugin-google-font-lato' );
+}, 99 );
+}
 
 ?>
