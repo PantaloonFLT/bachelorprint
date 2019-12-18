@@ -159,33 +159,45 @@
 
 		//add elements shop
 		box.eventReady(function(){
-      if (bpLocalize && bpLocalize.configurator && bpLocalize.configurator['config_' + bpLocalize.langCode]) {
-        window.tlsShopUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsShopUrl;
-        window.tlsSubShopUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsSubShopUrl;
-        window.tlsConfiguratorUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsConfiguratorUrl;
-      }
+			window.tlsHeaderConfig = {
+                shopUrl: '',
+                subShopUrl: '',
+                headerElSelector: '#shop-time-elem',
+                menuElSelector: '#shop-main-panel',
+                configuratorUrl: '',
+                loadResources: false,
+                headerWidgetUrl: '/custom/plugins/ZinitBachelorprint/Resources/views/frontend/_public/src/js/header_inject.js?v=1.3.0',
+            };
 
+			if (bpLocalize && bpLocalize.configurator && bpLocalize.configurator['config_' + bpLocalize.langCode]) {
+                window.tlsHeaderConfig.shopUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsShopUrl;
+                window.tlsHeaderConfig.subShopUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsSubShopUrl;
+                window.tlsHeaderConfig.configuratorUrl = bpLocalize.configurator['config_' + bpLocalize.langCode].tlsConfiguratorUrl;
+            }
 
-      window.tlsHeaderElSelector = '#shop-time-elem';
-			window.tlsMenuElSelector = '#shop-main-panel';
-			window.tlsHeaderWidgetUrl = '/custom/plugins/ZinitBachelorprint/Resources/views/frontend/_public/src/js/header_inject.js?v=1.0.11';
-			$.getScript(tlsShopUrl + tlsHeaderWidgetUrl, function() {
-			//$.getScript(bpLocalize.configurator['config_' + bpLocalize.langCode].headerInjectJS, function() {
-				if (window.tlsHeaderApp) {
-					var iframe = document.createElement('iframe');
-					iframe.id = 'tlsServiceFrame';
-					iframe.frameborder = '0';
-					iframe.width = '0';
-					iframe.height = '0';
-					iframe.onload = function () {
-						window.tlsHeaderApp.init();
-					};
-					iframe.src = tlsShopUrl + '/custom/plugins/ZinitBachelorprint/Resources/views/frontend/_public/src/header_service.html';
-					document.getElementsByTagName('body')[0].appendChild(iframe);
-					//addLogo();
-				}
-			});
+            function tlsHeaderStart() {
+                if (window.tlsHeaderApp) {
+                    var iframe = document.createElement('iframe');
+                    iframe.id = 'tlsServiceFrame';
+                    iframe.frameborder = '0';
+                    iframe.width = '0';
+                    iframe.height = '0';
+                    iframe.onload = function () {
+                        window.tlsHeaderApp.init();
+                    };
 
+                    iframe.src = window.tlsHeaderConfig.shopUrl + '/custom/plugins/ZinitBachelorprint/Resources/views/frontend/_public/src/header_service.html';
+                    document.getElementsByTagName('body')[0].appendChild(iframe);
+                    //addLogo();
+                }
+            }
+
+            if (window.tlsHeaderConfig.loadResources) {
+            	$.getScript(window.tlsHeaderConfig.shopUrl + window.tlsHeaderConfig.headerWidgetUrl, tlsHeaderStart);
+            } else {
+            	$.getScript('/wp-content/themes/shopware_src/header_inject.js', tlsHeaderStart);
+                //tlsHeaderStart();
+            }
 		});
 
 		//window resize
@@ -446,7 +458,7 @@
 				return this;
 			};
 		})(jQuery);
-		jQuery(document).ready(function(){
+		jQuery(document).ready(function($){
 			$('#bp-mobile-nav').touchanddrag();
 		});
 

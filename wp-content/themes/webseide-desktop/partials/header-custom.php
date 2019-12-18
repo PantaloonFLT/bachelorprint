@@ -132,7 +132,7 @@
 							array_push( $all_links_shop_sticky, $link['crb_link'] );
 						}
 						if( is_without_elem_shop( $site_uri, $links_without_shop ) ) { ?>
-			                <div class="col-md-6"></div>
+			                <?php #<div class="col-md-6"></div>?>
 		                    <div class="col-md-10 col-sm-7 bp-sticky-elem">
 		                    	<?php echo $sticky_navigation; ?>
 		                    </div>

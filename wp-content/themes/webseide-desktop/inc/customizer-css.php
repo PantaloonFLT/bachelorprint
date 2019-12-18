@@ -103,8 +103,8 @@ function webseide_css() {
     	}
 
 		#masthead.site-header a {
-            font-weight: <?php echo ( '' != get_theme_mod( 'webseide_headerfontweight' ) ? get_theme_mod( 'webseide_headerfontweight') : 'normal'); ?>;
-            font-family: <?php if(get_theme_mod('webseide_headerfontstyle')=='serif') {echo 'Georgia, "Times New Roman", Times, serif';} elseif(get_theme_mod('webseide_headerfontstyle')=='sans-serif') { echo 'Helvetica, Arial, sans-serif';}?>;
+            /*font-weight: <?php echo ( '' != get_theme_mod( 'webseide_headerfontweight' ) ? get_theme_mod( 'webseide_headerfontweight') : 'normal'); ?>;/*
+            /*font-family: <?php if(get_theme_mod('webseide_headerfontstyle')=='serif') {echo 'Georgia, "Times New Roman", Times, serif';} elseif(get_theme_mod('webseide_headerfontstyle')=='sans-serif') { echo 'Helvetica, Arial, sans-serif';}?>;*/
 		}
 
         .page-template-page-3_no-title_transparent-header header.site-header.dl-scrolling {
